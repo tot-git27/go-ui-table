@@ -41,15 +41,6 @@ func New() *Table {
 	}
 }
 
-// AddRow adds a new row to the table
-func (t *Table) AddRow(data ...interface{}) *Table {
-	t.mtx.Lock()
-	defer t.mtx.Unlock()
-	r := NewRow(data...)
-	t.Rows = append(t.Rows, r)
-	return t
-}
-
 // Bytes returns the []byte value of table
 func (t *Table) Bytes() []byte {
 	return []byte(t.String())
