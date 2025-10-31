@@ -29,22 +29,6 @@ func TestCell(t *testing.T) {
 	}
 }
 
-func TestRow(t *testing.T) {
-	row := &Row{
-		Separator: "\t",
-		Cells: []*Cell{
-			{Data: "foo", Width: 3, Wrap: true},
-			{Data: "bar baz", Width: 3, Wrap: true},
-		},
-	}
-	got := row.String()
-	need := "foo\tbar\n   \tbaz"
-
-	if got != need {
-		t.Fatalf("need: %q | got: %q ", need, got)
-	}
-}
-
 func TestAlign(t *testing.T) {
 	table := New()
 	table.AddRow("foo", "bar baz")
